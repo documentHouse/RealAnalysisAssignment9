@@ -34,6 +34,14 @@
 
 We are given two sequences of functions $f_n(x) = \frac{1}{nx + 1}$ and $g_n(x) = \frac{x}{nx+1}$ for $n \in \mathbb{N}$. We would like to show that $g_n$ converges uniformly on (0,1) but $f_n$ only converges pointwise.
 
+To show that $f_n$ converges pointwise to 0 we only need to note that for each $x \in (0,1)$ we have the following relationship:
+\[ f_n = \frac{1}{nx + 1} \le \frac{1}{nx}\]
+Since it is know that $\lim_{n \to \infty} c s_n = c s$ assuming that $\lim_{n \to \infty}s_n = s$ we have that $\lim_{n \to \infty} f_n = 0$ for each $x$. To show uniform convergence on the other hand we need to find an $\epsilon$ such that $|f_n| \le \epsilon$ for \emph{all} $x \in (0,1)$. If we let $\epsilon = \frac{1}{4}$ then $f_N(\frac{1}{N}) = \frac{1}{2}$ so there is always a $x = \frac{1}{N}$ that violates the requirement for uniform continuity.
+
+\indent We only need to show uniform convergence for $g_n$ since this implies pointwise convergence as well. As the following calculation shows
+\[ g_n = \frac{x}{nx+1} \le \frac{x}{nx} = \frac{1}{n} \]
+we can take $M_n = \frac{1}{n}$ in the Weierstrauss M-test which gives us the uniform convergence of $g_n$.
+
 \vspace{15pt}
 \begin{flushleft} 
 \textbf{Class 18.100B} - Problem 2\\
