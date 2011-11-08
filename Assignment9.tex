@@ -48,6 +48,35 @@ we can take $M_n = \frac{1}{n}$ in the Weierstrauss M-test which gives us the un
 \rule{500pt}{1pt}\\
 \end{flushleft} 
 
+We are given the function sequence $f_n(x) = \frac{x}{1+nx^2}$ for $x \in \mathbb{R}$ and $n \in \mathbb{N}$. We need to find or show the following about $f_n$:\\
+1) Find the limit function $f$ of $f_n$\\
+2) Find the limit function $g$ of $f'_n$\\
+3) Show $f'(x)$ exists for all $x \in \mathbb{R}$ but $f'(0) \neq g(0)$\\
+4) Find the values of $x$ such that $f'(x) = g(x)$\\
+5) Find the subintervals of $\mathbb{R}$ where $f_n \to f$ uniformly\\
+6) Find the subintervals of $\mathbb{R}$ where $f'_n \to g$ uniformly\\
+
+\noindent 1) We break up the pointwise convergence of $f_n$ into the subintervals $(-\infty,0),\{0\},(0,\infty)$. We have $f_n(0) = 0$ for all $n \in \mathbb{N}$ so the limit is $f(0) = 0$. For the subinterval $(0,\infty)$ we have the following 
+\[ f_n = \frac{x}{1+ nx^2} \le \frac{x}{nx^2} = \frac{1}{nx}\]
+so we have $\lim_{n \to \infty} f_n \to 0$ for $x \in (0,\infty)$. For $x \in (-\infty,0)$ we have \[ \lim_{n \to \infty} f_n(x) = - \lim_{n \to \infty} f_n(-x) \to 0 \] since $-x \in (0,\infty)$.
+
+\noindent 2) We start by calculating $f'_n$ as 
+\[ f'_n = \frac{1-nx^2}{(1+nx^2)^2} \]
+It is clear from substitution that $f_n(0) = 1$ for all $n \in \mathbb{N}$. The following calculation shows the value of $g$ for $x \in \mathbb{R}$ \textbackslash\{0\}:
+
+\begin{eqnarray*}
+\lim_{n \to \infty}  \frac{1-nx^2}{(1+nx^2)^2} &=& \lim_{n \to \infty} \frac{1}{(1+nx^2)^2}  -  \lim_{n \to \infty} \frac{nx^2}{(1+nx^2)^2} \\
+&=& \lim_{n \to \infty} \frac{1}{(1+nx^2)^2}  -  \lim_{n \to \infty} \frac{nx^2}{1+2n x^2+n^2 x^4}\\
+&=& 0 - 0 = 0
+\end{eqnarray*}
+
+\noindent So we have $g(0) = 1$ and $g(x) = 0$ for $x \in \mathbb{R}$ \textbackslash\{0\}.
+
+\noindent 3) Since $f(x) = 0$ for all $x \in \mathbb{R}$ we have $f'(x) = 0$ for all $x$. Because $g(0) = 1$ as was shown in part 2 we have $f'(0) \neq g(0)$.
+
+\noindent 4) $x = 0$ is the only point at which $f'$ and $g$ disagree so $f' = g$ for $x \in \mathbb{R}$ \textbackslash \{0\}.
+
+\noindent 5) 
 
 \vspace{15pt}
 \begin{flushleft} 
