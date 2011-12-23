@@ -76,7 +76,13 @@ It is clear from substitution that $f_n(0) = 1$ for all $n \in \mathbb{N}$. The 
 
 \noindent 4) $x = 0$ is the only point at which $f'$ and $g$ disagree so $f' = g$ for $x \in \mathbb{R}$ \textbackslash \{0\}.
 
-\noindent 5) 
+\noindent 5) We show that the $f_n$ is uniformly convergent from the definition of uniform convergence.\\
+\indent First we assume that $|x| < \epsilon$. We have therefore $|x| < \epsilon < \epsilon |1 + n x^2|$ for all $n \in \mathbb{N}$. This gives $|\frac{x}{1+nx^2}| < \epsilon$ for all $n$ so that $N$ may be chosen arbitrarily.\\
+\indent Now we assume that $\epsilon \le |x|$. So we have $\frac{1}{|x|} < \frac{1}{\epsilon}$ and if we let $N > \frac{1}{\epsilon^2}$ then for $n > N > \frac{1}{\epsilon^2}$ so $ \frac{1}{n} < \epsilon^2$ and we have
+\[ |\frac{x}{1 + nx^2}| < |\frac{x}{nx^2}| < |\frac{1}{nx}| < \frac{1}{n\epsilon} <  \frac{1}{\epsilon} \epsilon^2\ = \epsilon \]
+This shows for all $\epsilon$ if we pick $N > \frac{1}{\epsilon^2}$ then for $n > N$ it is true that 
+$|\frac{x}{1+nx^2}| < \epsilon$ so $f_n \to 0$ uniformly.
+6)
 
 \vspace{15pt}
 \begin{flushleft} 
