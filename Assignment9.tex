@@ -100,7 +100,9 @@ If we fix $m = N+1$ and $\epsilon$ and use the triangle equality we get
 |f_n(x)| - |f_m(x)| < \epsilon \implies |f_n(x)| < |f_m(x)| + \epsilon \label{eqn:cauchybound}
 \end{equation}
 Because $f_m$ is bounded we have $|f_m| < M$ so $|f_n(x)| < M + \epsilon$ by ($\ref{eqn:cauchybound}$) for all $n > N$. Because $f_n$ is bounded for each $n$ we choose $B =$ Max$\{B_1,B_2,\cdots,B_{N-1},B_{N},M + \epsilon\}$ where $B_1$ is the bound for $f_1$, $B_2$ for $f_2$ and so on. It is clear from construction then that $|f_n| < B$ for $n \in \mathbb{N}$ which is the definition of uniform boundedness. \\ 
-\indent If we let $f_n(x) = \frac{1}{x + \frac{1}{n}}$ on $(0,1)$ then $\lim_{n \to \infty} f_n = \frac{1}{x}$ which is clearly unbounded on $(0,1)$. It is also clear that $f_n$ converges point wise and that $f_n < n$ for all $n \in \mathbb{N}$. This shows that we can have bounded functions converge to an unbounded function if we do not have uniform convergence.
+\indent Because $f_n$ is uniformly convergent we fix $\epsilon$ and the following calculation shows that $f$ is bounded:
+\[ \text{For $n > N $} |f-f_n| < \epsilon \implies |f|-|f_n| < \epsilon \implies |f| < \epsilon + |f_n| < \epsilon + B \]
+\indent Finally, if we let $f_n(x) = \frac{1}{x + \frac{1}{n}}$ on $(0,1)$ then $\lim_{n \to \infty} f_n = \frac{1}{x}$ which is clearly unbounded on $(0,1)$. It is also clear that $f_n$ converges point wise and that $f_n < n$ for all $n \in \mathbb{N}$. This shows that we can have bounded functions converge to an unbounded function if we do not have uniform convergence.
  
 \vspace{15pt}
 \begin{flushleft} 
@@ -112,13 +114,27 @@ We would like to show first that if $f_n \to f$ and $g_n \to g$ uniformly on $E$
 Since $f_n$ and $g_n$ converge uniformly then there exists $N_1$ and $N_2$ such that $|f_n - f | < \frac{\epsilon}{2}$ and $|g_n - g | < \frac{\epsilon}{2}$ for $n > N_1$ and $n > N_2$ respectively. We let $N = $ Max$\{N_1,N_2\}$ and get 
 \[ |f_n + g_n - (f+g)| = |f_n - f + g_n - g| < |f_n - f| + |g_n - g| < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon \]
 This shows the first part.\\
-\indent Since we are given that $f_n$ and $g_n$ are bounded for each $n$ as well as being uniformly convergent we can apply the result of problem 3 to conclude that both $f_n$ and $g_n$ are uniformly bounded. So we have $|f_n| < F$ and $|g_n| < G$ for $n \in \mathbb{N}$.
+\indent Since we are given that $f_n$ and $g_n$ are bounded for each $n$ as well as being uniformly convergent we can apply the result of problem 3 to conclude that both $f_n$ and $g_n$ are uniformly bounded. So we have $|g_n| < G$ for $n \in \mathbb{N}$. We also know from the previous problem that $f$ is bounded so we have $|f| < F$ for all $x \in E$. We perform the calculation as follows. Since $f_n$ and $g_n$ are uniformly convergent there exists $N_1$ and $N_2$ respectively such that for $n > N_1,N_2$
+\begin{eqnarray*}
+|f_n - f| &\le& \frac{\epsilon}{2G} \\
+|g_n - g| &\le& \frac{\epsilon}{2F}
+\end{eqnarray*}
+We take $N = $ Max$\{ N_1, N_2\}$ so that both inequalities hold and calculate
+\begin{eqnarray*}
+ |f_n g_n - f g| &=& |f_n g_n - f g_n + f g_n - f g| \\
+ 		       &=& |g_n(f_n - f) + f (g_n - g)| \\ 
+		       &\le&  |g_n||f_n - f| + |f||g_n-g| \\
+		       &<& G|f_n - f| + F |g_n-g| \\
+		       &\le& G \frac{\epsilon}{2G} + F \frac{\epsilon}{2F} = \epsilon
+\end{eqnarray*}
+So $ |f_n g_n - f g| < \epsilon $ for all $n > N$ and $f_n g_n \to fg$ uniformly.
 
 \vspace{15pt}
 \begin{flushleft} 
 \textbf{Class 18.100B} - Problem 5\\
 \rule{500pt}{1pt}\\
 \end{flushleft} 
+
 
 
 \vspace{15pt}
