@@ -81,16 +81,26 @@ It is clear from substitution that $f_n(0) = 1$ for all $n \in \mathbb{N}$. The 
 \indent Now we assume that $\epsilon \le |x|$. So we have $\frac{1}{|x|} < \frac{1}{\epsilon}$ and if we let $N > \frac{1}{\epsilon^2}$ then for $n > N > \frac{1}{\epsilon^2}$ so $ \frac{1}{n} < \epsilon^2$ and we have
 \[ |\frac{x}{1 + nx^2}| < |\frac{x}{nx^2}| < |\frac{1}{nx}| < \frac{1}{n\epsilon} <  \frac{1}{\epsilon} \epsilon^2\ = \epsilon \]
 This shows for all $\epsilon$ if we pick $N > \frac{1}{\epsilon^2}$ then for $n > N$ it is true that 
-$|\frac{x}{1+nx^2}| < \epsilon$ so $f_n \to 0$ uniformly.
-6)
+$|\frac{x}{1+nx^2}| < \epsilon$ so $f_n \to 0$ uniformly.\\
+6) From part 2 we have the result that $f_n' = \frac{1- nx^2}{(1+nx^2)^2}$. Since $f_n'(\frac{1}{\sqrt{2n}}) = \frac{2}{9}$ it is clear that any interval that has $x = 0$ is a limit point will not be uniformly convergent.\\
+\indent We now suppose that $0 < \epsilon \le x$. If we let $N  > \frac{1}{\epsilon^3}$ then for $n > N > \frac{1}{\epsilon^3}$ we have the following calculation:
+\[ |\frac{1-nx^2}{(1+nx^2)^2}| <  |\frac{1 + nx^2}{(1+nx^2)^2}| = |\frac{1}{1 + nx^2}| < |\frac{1}{nx^2}| <  \frac{1}{n\epsilon^2} < \frac{1}{\epsilon^2} \epsilon^3 = \epsilon \]
+This shows that $f_n' \to g$ uniformly for any interval which does not have zero as limit point
 
 \vspace{15pt}
 \begin{flushleft} 
 \textbf{Class 18.100B} - Problem 3\\
 \rule{500pt}{1pt}\\
 \end{flushleft} 
-
-
+We would like to show that if $f_n \to f$ uniformly and each $f_n$ is bounded then $f_n$ is uniformly bounded and $f$ is bounded. We also will provide an example that $f$ need not be bounded if $f_n$ is not uniformly convergent.\\
+\indent By the cauchy characterization of uniform convergence there exists an $N$ such that 
+\[ | f_n(x) - f_m(x) | < \epsilon \text{ for n,m $ > N$ and $x \in E$} \] 
+If we fix $m = N+1$ and $\epsilon$ and use the triangle equality we get 
+\begin{equation}
+|f_n(x)| - |f_m(x)| < \epsilon \implies |f_n(x)| < |f_m(x)| + \epsilon \label{eqn:cauchybound}
+\end{equation}
+Because $f_m$ is bounded we have $|f_m| < M$ so $|f_n(x)| < M + \epsilon$ by ($\ref{eqn:cauchybound}$) for all $n > N$. Because $f_n$ is bounded for each $n$ we choose $B =$ Max$\{B_1,B_2,\cdots,B_{N-1},B_{N},M + \epsilon\}$ where $B_1$ is the bound for $f_1$, $B_2$ for $f_2$ and so on. It is clear from construction then that $|f_n| < B$ for $n \in \mathbb{N}$ which is the definition of uniform boundedness. \\ 
+\indent If we let $f_n(x) = \frac{1}{x + \frac{1}{n}}$ on $(0,1)$ then $\lim_{n \to \infty} f_n = \frac{1}{x}$ which is clearly unbounded on $(0,1)$. It is also clear that $f_n$ converges point wise and that $f_n < n$ for all $n \in \mathbb{N}$. This shows that we can have bounded functions converge to an unbounded function if we do not have uniform convergence.
  
 \vspace{15pt}
 \begin{flushleft} 
@@ -98,6 +108,11 @@ $|\frac{x}{1+nx^2}| < \epsilon$ so $f_n \to 0$ uniformly.
 \rule{500pt}{1pt}\\
 \end{flushleft} 
 
+We would like to show first that if $f_n \to f$ and $g_n \to g$ uniformly on $E$ then $f_n + g_n \to f + g$ uniformly on $E$. We also want to show that if each $f_n$ and each $g_n$ is bounded on $E$ then $f_n g_n \to fg$ uniformly.
+Since $f_n$ and $g_n$ converge uniformly then there exists $N_1$ and $N_2$ such that $|f_n - f | < \frac{\epsilon}{2}$ and $|g_n - g | < \frac{\epsilon}{2}$ for $n > N_1$ and $n > N_2$ respectively. We let $N = $ Max$\{N_1,N_2\}$ and get 
+\[ |f_n + g_n - (f+g)| = |f_n - f + g_n - g| < |f_n - f| + |g_n - g| < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon \]
+This shows the first part.\\
+\indent Since we are given that $f_n$ and $g_n$ are bounded for each $n$ as well as being uniformly convergent we can apply the result of problem 3 to conclude that both $f_n$ and $g_n$ are uniformly bounded. So we have $|f_n| < F$ and $|g_n| < G$ for $n \in \mathbb{N}$.
 
 \vspace{15pt}
 \begin{flushleft} 
