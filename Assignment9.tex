@@ -135,7 +135,41 @@ So $ |f_n g_n - f g| < \epsilon $ for all $n > N$ and $f_n g_n \to fg$ uniformly
 \rule{500pt}{1pt}\\
 \end{flushleft} 
 
+We are given the following sequences 
+\begin{eqnarray*}
+ f_n(x) &=& x(1 + \frac{1}{n}) \\
+ g_n(x) &=& \left\{
+	\begin{array}{ll}
+		\frac{1}{n}  & \mbox{if } x \in \mathbb{R} \text{\textbackslash} \mathbb{Q} \\
+		q + \frac{1}{n} & \mbox{if } x \in \mathbb{Q} \text{ and } x = \frac{p}{q}
+	\end{array}
+\right.
+\end{eqnarray*}
+It is clear that the point wise limits of these sequences are 
+\begin{eqnarray*}
+ f(x) &=& x\\
+ g(x) &=& \left\{
+	\begin{array}{ll}
+		0 & \mbox{if } x \in \mathbb{R} \text{\textbackslash} \mathbb{Q} \\
+		q & \mbox{if } x \in \mathbb{Q} \text{ and } x = \frac{p}{q}
+	\end{array}
+\right.
+\end{eqnarray*}
 
+For any bounded interval $[a,b]$ we have $x \le b$. This allows us to chose $N > \frac{b}{\epsilon}$ so that if $n > N$ we have
+\[ |f_n(x) - f(x) | < \frac{x}{n} < \frac{b}{n}  < b \frac{\epsilon}{b} = \epsilon \]
+Similarly we choose $N > \frac{1}{\epsilon}$ so if  $n > N$ to show that 
+\[ |g_n(x) - g(x)| < \frac{1}{n} < \epsilon \]
+so that both $f_n \to f$ and $g_n \to g$ uniformly.
+Now consider the following function:
+\begin{eqnarray*}
+f_n(x)g_n(x) - f(x)g(x) &=& \left\{
+	\begin{array}{ll}
+		\frac{x}{n}(1 + \frac{1}{n}) & \mbox{if } x \in \mathbb{R} \text{\textbackslash} \mathbb{Q} \\
+		 \frac{p}{n} + \frac{x}{n} + \frac{x}{n^2}& \mbox{if } x \in \mathbb{Q} \text{ and } x = \frac{p}{q}
+	\end{array}
+\right.
+\end{eqnarray*}
 
 \vspace{15pt}
 \begin{flushleft} 
@@ -143,6 +177,14 @@ So $ |f_n g_n - f g| < \epsilon $ for all $n > N$ and $f_n g_n \to fg$ uniformly
 \rule{500pt}{1pt}\\
 \end{flushleft} 
 
+We would like to show that $g \circ f_n \to g \circ f$ uniformly given that $f_n \to f$ uniformly and $f_n$ is uniformly bounded.\\
+Since $f_n$ is uniformly convergent, for any $\delta$ there exists an $N$ such if $n > N$ then 
+\[  |f_n(x) - f(x)| < \delta \text{ for all $x \in E$} \]
+Let $M$ be a uniform bound of $f_n$ then note that because $g$ is continuous on $[-M,M]$ it is uniformly continuous. By the uniform continuity of $g$ we know that for a given $\epsilon$ that if $|f_n(x) - f(x)| < \delta $ and $f_n(x),f(x) \in [-M,M]$ then it is true that 
+\[ |g(f_n(x)) - g(f(x))| < \epsilon \]
+This says that for all $\epsilon$ there exists an $N$ such that if $x \in E$ and $n > N$ then 
+\[ |g \circ f_n(x) - g \circ f(x)| < \epsilon \]
+this says that $g \circ f_n \to g \circ f$ uniformly.
 
 \vspace{15pt}
 \begin{flushleft} 
