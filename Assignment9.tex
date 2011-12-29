@@ -163,13 +163,28 @@ Similarly we choose $N > \frac{1}{\epsilon}$ so if  $n > N$ to show that
 so that both $f_n \to f$ and $g_n \to g$ uniformly.
 Now consider the following function:
 \begin{eqnarray*}
-f_n(x)g_n(x) - f(x)g(x) &=& \left\{
+|f_n(x)g_n(x) - f(x)g(x)| &=& \left\{
 	\begin{array}{ll}
-		\frac{x}{n}(1 + \frac{1}{n}) & \mbox{if } x \in \mathbb{R} \text{\textbackslash} \mathbb{Q} \\
-		 \frac{p}{n} + \frac{x}{n} + \frac{x}{n^2}& \mbox{if } x \in \mathbb{Q} \text{ and } x = \frac{p}{q}
+		| \frac{x}{n}(1 + \frac{1}{n}) | & \mbox{if } x \in \mathbb{R} \text{\textbackslash} \mathbb{Q} \\
+		| \frac{xq}{n} + \frac{x}{n} + \frac{x}{n^2} | & \mbox{if } x \in \mathbb{Q} \text{ and } x = \frac{p}{q}
 	\end{array}
 \right.
 \end{eqnarray*}
+
+If we let $B = $ Min $\{ |a|,|b| \}$ then we get 
+\begin{eqnarray}
+| \frac{xq}{n} + \frac{x}{n} + \frac{x}{n^2} | &\ge& |\frac{Bq}{n} + \frac{B}{n} + \frac{B}{n^2}| \nonumber \\
+ \implies | \frac{xq}{n} + \frac{x}{n} + \frac{x}{n^2} | &>& |\frac{Bq}{n}| \label{eqn:lowbound}
+\end{eqnarray}
+
+%Because $x = \frac{p}{q}$ we can take each element in the sum $\frac{p}{n} + \frac{x}{n} + \frac{x}{n^2}$ to be positive since we are taking the absolute value. We note that then we have $\frac{p}{n} + \frac{x}{n} + \frac{x}{n^2} > \frac{p}{n}$. This gives
+%\begin{equation}
+%|f_n(x)g_n(x) - f(x)g(x)| > \frac{p}{n} \quad \text{for x $\in \mathbb{Q}$ and $x = \frac{p}{q}$}
+%\end{equation}
+By the density of the rationals we know that on any given interval $[a,b]$ there is an $r \in \mathbb{Q}$ such that $r \in (a,b)$. We chose such a $r$ and note that since $lim_{n \to \infty} r + \frac{1}{n} = r$ we pick $\epsilon = $ Min $\{ |r-a|, |r-b| \}$ and there is an $N$ such that for $n > N$ we have $r + \frac{1}{n} \in [a,b]$. This is to say that after a certain point $N$ we can be sure that all the elements of the sequence $r-\frac{1}{n}$ are contained in the interval.\\
+\indent We let $r = \frac{p'}{q'}$ which gives for the sequence $r - \frac{1}{n} = \frac{np' - q'}{q'n}$. So if we pick $N_1 = $ Max$\{n,N\}$ then we have $q =  q'n$ in ($\ref{eqn:lowbound}$) which gives
+\[ | \frac{xq}{n} + \frac{x}{n} + \frac{x}{n^2} | > |\frac{Bq'N_1}{n}| > Bq' \quad \text{for all $n \in \mathbb{N}$ }\]
+This shows that $f_n g_n$ does not converge uniformly.
 
 \vspace{15pt}
 \begin{flushleft} 
