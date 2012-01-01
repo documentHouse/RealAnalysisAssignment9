@@ -177,10 +177,6 @@ If we let $B = $ Min $\{ |a|,|b| \}$ then we get
  \implies | \frac{xq}{n} + \frac{x}{n} + \frac{x}{n^2} | &>& |\frac{Bq}{n}| \label{eqn:lowbound}
 \end{eqnarray}
 
-%Because $x = \frac{p}{q}$ we can take each element in the sum $\frac{p}{n} + \frac{x}{n} + \frac{x}{n^2}$ to be positive since we are taking the absolute value. We note that then we have $\frac{p}{n} + \frac{x}{n} + \frac{x}{n^2} > \frac{p}{n}$. This gives
-%\begin{equation}
-%|f_n(x)g_n(x) - f(x)g(x)| > \frac{p}{n} \quad \text{for x $\in \mathbb{Q}$ and $x = \frac{p}{q}$}
-%\end{equation}
 By the density of the rationals we know that on any given interval $[a,b]$ there is an $r \in \mathbb{Q}$ such that $r \in (a,b)$. We chose such a $r$ and note that since $lim_{n \to \infty} r + \frac{1}{n} = r$ we pick $\epsilon = $ Min $\{ |r-a|, |r-b| \}$ and there is an $N$ such that for $n > N$ we have $r + \frac{1}{n} \in [a,b]$. This is to say that after a certain point $N$ we can be sure that all the elements of the sequence $r-\frac{1}{n}$ are contained in the interval.\\
 \indent We let $r = \frac{p'}{q'}$ which gives for the sequence $r - \frac{1}{n} = \frac{np' - q'}{q'n}$. So if we pick $N_1 = $ Max$\{n,N\}$ then we have $q =  q'n$ in ($\ref{eqn:lowbound}$) which gives
 \[ | \frac{xq}{n} + \frac{x}{n} + \frac{x}{n^2} | > |\frac{Bq'N_1}{n}| > Bq' \quad \text{for all $n \in \mathbb{N}$ }\]
@@ -207,11 +203,63 @@ this says that $g \circ f_n \to g \circ f$ uniformly.
 \rule{500pt}{1pt}\\
 \end{flushleft} 
 
-%\vspace{15pt}
-%\begin{flushleft} 
-%\textbf{Class 18.100B} - Extra Problem 1\\
-%\rule{500pt}{1pt}\\
-%\end{flushleft} 
+\noindent We want to show \\
+a) If $P_n(x)$ is defined as
+\begin{eqnarray*}
+P_0(x) &=& 0 \\
+P_{n+1}(x) &=& P_n(x) + \frac{1}{2} (x - P_n^2(x))
+\end{eqnarray*}
+then $P_n(x) \to \sqrt{x}$ uniformly. \\
+
+b) There exists a sequence of polynomials that converges uniformly on $[-1,1]$ to $f(x) = |x|$
+
+For part a) first we note that $P_n$ defines a sequence of polynomials. This is true since as a basis for induction $P_0$ is a trivial polynomial. For the induction step we note that because a product of a polynomial and a polynomial is a polynomial (by the binomial theorem) then $P_n^2$ is also a polynomial. This means the expression $P_n(x) + \frac{1}{2}x-\frac{1}{2}P_n^2(x)$ is a sum of polynomials showing that $P_{n+1}$ is a polynomial.\\
+\indent So $P_n$ is a sequence of continuous function that we now show converges point wise.\\
+\indent We show $\sqrt{x} \ge P_n(x)$ for $ x \in [0,1]$ inductively. The inequality is trivially true for $\sqrt{x} \ge 0 = P_0(x)$. Now assume that $\sqrt{x} \ge P_n(x)$. This allows us to assume that
+\begin{equation}
+\sqrt{x} - P_n(x) \ge 0 \label{eqn:firstpolyineq}
+\end{equation}
+and also
+\begin{eqnarray}
+\sqrt{x} \ge P_n(x) &\implies& \sqrt{x} + \sqrt{x} \ge \sqrt{x} + P_n(x) \nonumber \\
+			    &\implies& 2 \sqrt{x} \ge \sqrt{x} + P_n(x) \nonumber \\
+			    &\implies& \sqrt{x} \ge \frac{1}{2}( \sqrt{x} + P_n(x) ) \nonumber \\
+			    &\implies& \sqrt{x} - \frac{1}{2}( \sqrt{x} + P_n(x) ) \ge 0 \nonumber\\
+			    &\implies& 1 - \frac{1}{2}( \sqrt{x} + P_n(x) ) \ge 0 \quad \text{since $x \in$ [0,1] $\implies 1 \ge \sqrt{x}$ } \label{eqn:secondpolyineq}
+\end{eqnarray}
+
+\noindent Now we perform the following calculation:
+\begin{eqnarray*}
+\sqrt{x} - P_{n+1}(x) &=& \sqrt{x} - P_n(x) - \frac{1}{2}(x - P_n^2(x))\\
+			       &=& \sqrt{x} - P_n(x) - \frac{1}{2}(\sqrt{x} - P_n(x))(\sqrt{x} + P_n(x))\\
+			       &=& (\sqrt{x} - P_n(x))(1 - \frac{1}{2}(\sqrt{x} + P_n(x)))\\
+			       &\ge& 0 \quad \text{by equations (\ref{eqn:firstpolyineq}) and (\ref{eqn:secondpolyineq})}
+\end{eqnarray*}
+This shows that $\sqrt{x} \ge P_{n+1}(x)$ which completes the induction.\\
+Now since $\sqrt{x} \ge P_n(x)$ for all $n$ we have $x > P_n^2(x) \implies x - P_n^2(x) \ge 0$ for all $n$.  This allows us to show that $P_n$ is increasing since 
+\begin{eqnarray*}
+&& P_{n+1}(x) = P_n(x) + \frac{1}{2} (x - P_n^2(x)) \\
+&\implies& P_{n+1}(x) - P_n(x) = \frac{1}{2} (x - P_n^2(x))  \\ 
+&\implies & P_{n+1}(x) - P_n(x) \ge 0 \quad \text{by the previous comments}
+\end{eqnarray*}
+We have shown that for a give $x$ $P_n(x)$ is increasing and bounded. By a theorem in rudin this means that $P_n$ converges. This allows to calculate as follows which demonstrates the point wise convergence
+\begin{eqnarray*}
+&& \lim_{n \to \infty} P_{n+1}(x) = \lim_{n \to \infty} P_n(x) + \frac{1}{2} (x - \lim_{n \to \infty} P_n^2(x))\\
+&\implies& P(x) = P(x) + \frac{1}{2} (x - P^2(x)) \\
+&\implies& 0 = \frac{1}{2} (x - P^2(x)) \\ 
+&\implies& \sqrt{x} = P(x)
+\end{eqnarray*}
+
+\indent We now briefly consider the set of polynomials defined by $P'_n(x) = 1 - P_n(x)$. Since $P_n$ converges point wise so does $P'_n$ by a basic property of limits. However since $P_{n+1}(x) \ge P_n(x)$ we have \\$P'_{n+1}(x) = 1 - P_{n+1}(x) \le 1 - P_n(x) = P'_n(x)$. This shows that $P'_n$ is a decreasing sequence. By a theorem in rudin, if the functions in a sequence of functions on a compact set are continuous, limit to a continuous function and are decreasing then the sequence uniformly converges. So $\lim P'_n \to 1 - \sqrt{x}$ uniformly but then for $\epsilon$ there exists $N$ such that if $n > N$ we have 
+\begin{eqnarray*} 
+&& |P'_n(x) - (1 - \sqrt{x})| < \epsilon \\
+&\implies& |1 - P_n - (1 - \sqrt{x})| < \epsilon \\
+&\implies& |P_n - \sqrt{x}| < \epsilon
+\end{eqnarray*}
+so $P_n \to \sqrt{x}$ uniformly. \\
+
+\noindent For part b) we note that the function $f(x) = x^2$ is such that $f : [-1,1] \to [0,1]$. By part a the sequence of polynomials $P_n(x) \to \sqrt{x}$ uniformly. Since $P_n(x)$ is a polynomial for all $n$ so is $P_n(x^2)$. So we have $P_n \circ f : [-1,1] \to [0,1]$ and $P_n \circ f(x) = P_n(f(x)) = P_n(x^2) \to \sqrt{x^2} = |x|$ which satisfies the required conditions.
+
 
 
 \end{document}  
